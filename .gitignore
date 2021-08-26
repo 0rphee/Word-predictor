@@ -478,4 +478,3 @@ dmypy.json
 cython_debug/
 
 # End of https://www.toptal.com/developers/gitignore/api/pycharm+iml,pycharm,pycharm+all,python
-txts/.DS_Store
