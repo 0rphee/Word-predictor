@@ -38,14 +38,6 @@ def triad_counter(pure_word: str):
                     print("ERROR WITH DICTIONARY")
                     raise ValueError
 
-# {"__a" : {"b": 2, etc}, "__b": {etc}, etc}
-# "__a": "b", "_ab": "b", "aaa": "a"
-# "b__": "_", "ba_":"_", "baa": "_"
-
-# ___happines s ___
-# 01234567891011
-# len = 9
-
 
 def add_count(word: str):
     for index, char in enumerate(word):
@@ -59,10 +51,9 @@ def add_count(word: str):
             count[index][char] = 1
 
 
-def process_line(line: str, use_index_count: str) -> list:
+def process_line(line: str, use_index_count: str):
     line = line.replace("\n", "").split()
-    newline = [process_word(word, use_index_count) for word in line]
-    return newline
+    [process_word(word, use_index_count) for word in line]
 
 
 def remove_undesired_chars(word: str) -> str:
@@ -104,7 +95,7 @@ def main(count: dict):
     with open(text_path, "r") as file:
         lines = iter(file.readlines())
         for line in lines:
-            line = process_line(line, use_index_count)
+            process_line(line, use_index_count)
     count = order_dict(count)
     if use_index_count == "y":
         with open(json_file_path, "w") as file:
