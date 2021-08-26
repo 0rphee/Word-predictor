@@ -1,9 +1,6 @@
 import json
-import os
 import sys
 import os.path as path
-
-text_filename = sys.argv[1]
 
 absolute_path = path.abspath(__file__)
 file_dir = path.dirname(absolute_path)
@@ -12,8 +9,10 @@ parent_dir = path.dirname(file_dir)
 txts_path = path.join(parent_dir, "txts")
 jsons_path = path.join(parent_dir, "jsons")
 
-text_path = path.join(txts_path, text_filename)
-json_file_path = path.join(jsons_path, f"{text_filename.removesuffix('.txt')}_results.json")
+if __name__ == "__main__":
+    text_filename = sys.argv[1]
+    text_path = path.join(txts_path, text_filename)
+    json_file_path = path.join(jsons_path, f"{text_filename.removesuffix('.txt')}_results.json")
 
 count = dict()
 
