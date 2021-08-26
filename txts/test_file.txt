@@ -1,0 +1,9 @@
+this is my test file
+
+yep this is a file
+HELLO THIS IS A LINE 
+fileeee
+
+here we have more files
+
+another line with [bad characters]
