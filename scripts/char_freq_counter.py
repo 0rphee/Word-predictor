@@ -1,4 +1,5 @@
 import json
+import os
 import sys
 import os.path as path
 
@@ -10,6 +11,16 @@ parent_dir = path.dirname(file_dir)
 
 txts_path = path.join(parent_dir, "txts")
 jsons_path = path.join(parent_dir, "jsons")
+
+# creation of directories
+try:
+    os.mkdir(txts_path)
+    try:
+        os.mkdir(jsons_path)
+    except OSError:
+        pass
+except OSError:
+    pass
 
 text_path = path.join(txts_path, text_filename)
 json_file_path = path.join(jsons_path, f"{text_filename.removesuffix('.txt')}_results.json")
