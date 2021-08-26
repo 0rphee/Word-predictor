@@ -12,9 +12,6 @@ with open(triad_file_path) as json_file:
     DATA = json.load(json_file)
 
 
-# DATA = {int(index): content for index, content in DATA.items()}
-# todo fix int values
-
 def guess_next_letter(word: str):  # word = "___hel"
     last_triad = word[-3:]
     try:
