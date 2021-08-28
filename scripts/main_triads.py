@@ -28,7 +28,7 @@ def cycle():
         letter = input("next letter:\n")
         # stops loop
         if len(letter) == 0:
-            print(f"-------------------\nyour final word is:\n{word}")
+            print(f"-------------------\nyour final word is:\n{word[3:]}")
             break
 
         word += letter
