@@ -21,4 +21,4 @@ A couple of simple python scripts that try to predict the next letter of a word 
 
 	- `$ python3 main.py anna_karenina_results.json`
 
-- In the rare case that you don't have large `.txt` files lying around your computer you can download books for free at the amazing [Project Gutenberg website](https://www.gutenberg.org).
+- In the rare case that you don't have large `.txt` files lying around your computer, you can download books for free at the amazing [Project Gutenberg website](https://www.gutenberg.org).
