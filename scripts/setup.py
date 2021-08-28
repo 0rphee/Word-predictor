@@ -1,5 +1,12 @@
 import os
-from char_freq_counter import txts_path, jsons_path
+import os.path as path
+
+absolute_path = path.abspath(__file__)
+file_dir = path.dirname(absolute_path)
+parent_dir = path.dirname(file_dir)
+
+txts_path = path.join(parent_dir, "txts")
+jsons_path = path.join(parent_dir, "jsons")
 
 
 def main():
