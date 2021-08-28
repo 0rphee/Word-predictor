@@ -12,7 +12,7 @@ with open(triad_file_path) as json_file:
     DATA = json.load(json_file)
 
 
-def guess_next_letter(word: str):  # word = "___hel"
+def guess_next_letter(word: str):  # ex. word = "___hel"
     last_triad = word[-3:]
     try:
         next_char = random.choices(list(DATA[last_triad].keys()), list(DATA[last_triad].values()))[0]
