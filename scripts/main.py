@@ -2,16 +2,7 @@ import random
 import json
 import sys
 import os.path as path
-from char_freq_counter import jsons_path
-
-json_filename = sys.argv[1]
-json_file_path = path.join(jsons_path, json_filename)
-
-
-with open(json_file_path) as json_file:
-    DATA: dict
-    DATA = json.load(json_file)
-DATA = {int(index): content for index, content in DATA.items()}
+from setup import jsons_path
 
 
 def guess_next_char(word: str) -> str:
@@ -35,4 +26,10 @@ def cycle():
         print(f"next char:\n{word + next_char}")
 
 if __name__ == '__main__':
+    json_filename = sys.argv[1]
+    json_file_path = path.join(jsons_path, json_filename)
+    with open(json_file_path) as json_file:
+        DATA: dict
+        DATA = json.load(json_file)
+    DATA = {int(index): content for index, content in DATA.items()}
     cycle()
