@@ -1,6 +1,9 @@
 import os
 import os.path as path
 
+special_chars = set("éê")
+standard_chars = set("qwertyuiopasdfghjklzxcvbnméê")
+
 absolute_path = path.abspath(__file__)
 file_dir = path.dirname(absolute_path)
 parent_dir = path.dirname(file_dir)

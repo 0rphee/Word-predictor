@@ -1,7 +1,7 @@
 import json
 import sys
 import os.path as path
-from setup import txts_path, jsons_path
+from setup import txts_path, jsons_path, special_chars, standard_chars
 
 
 def triad_counter(pure_word: str):
@@ -37,8 +37,6 @@ def process_line(line: str, use_index_count: str):
 
 
 def remove_undesired_chars(word: str) -> str:
-    special_chars = set("éê")
-    standard_chars = set("qwertyuiopasdfghjklzxcvbnméê")
     acceptable_chars = special_chars.union(standard_chars)
     # characters = set(""",;.:-_{[}]´¨+*!"#$%&/()=?'¿¡“’""")
     for char in set(word):
@@ -79,7 +77,7 @@ def main(inner_count: dict):
     inner_count = order_dict(inner_count)
     if use_index_count == "y":
         with open(json_file_path, "w") as file:
-            json.dump(inner_count, file, indent=4)
+            json.dump(inner_count, file, sort_keys=True, indent=4)
     with open(triad_file_path, "w") as file:
         json.dump(TRIAD_COUNT, file, sort_keys=True, indent=4)
 

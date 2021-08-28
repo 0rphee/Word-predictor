@@ -2,15 +2,20 @@ import random
 import json
 import sys
 import os.path as path
-from setup import jsons_path
+from setup import jsons_path, standard_chars
 
 
 def guess_next_char(word: str) -> str:
     next_index = len(word)
-    chars = DATA[next_index]
-    chars = {key: int(value) for key, value in sorted(chars.items(), key=lambda x: -int(x[1]))}
-    next_char = random.choices(list(chars.keys()), list(chars.values()))[0]
-    return next_char
+    try:
+        chars = DATA[next_index]
+        chars = {key: int(value) for key, value in sorted(chars.items(), key=lambda x: -int(x[1]))}
+        next_char = random.choices(list(chars.keys()), list(chars.values()))[0]
+        return next_char
+    except KeyError:
+        print("Oh no, there's not data in your analyzed text about a word this long, the script will return a random character")
+        print("Consider using a larger text to get better results")
+    return random.choice(list(standard_chars))
 
 
 def cycle():

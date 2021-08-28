@@ -2,7 +2,7 @@ import random
 import json
 import sys
 import os.path as path
-from setup import jsons_path
+from setup import jsons_path, standard_chars
 
 
 def guess_next_letter(word: str):  # ex. word = "___hel"
@@ -11,8 +11,9 @@ def guess_next_letter(word: str):  # ex. word = "___hel"
         next_char = random.choices(list(DATA[last_triad].keys()), list(DATA[last_triad].values()))[0]
         return next_char
     except KeyError:
-        print("Oh no an error")
-        raise KeyError
+        print("Oh no, there's not data in your analyzed text about this text sequence, the script will return a random character")
+        print("Consider using a larger text to get better results")
+        return random.choice(list(standard_chars))
 
 
 def cycle():
